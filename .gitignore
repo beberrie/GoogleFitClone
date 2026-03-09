@@ -1,6 +1,22 @@
 *.iml
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+release/
+
 .gradle
-/local.properties
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
@@ -13,3 +29,24 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Log Files
+*.log
+
+# Android Studio Navigation editor temp files
+.navigation/
+
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/dictionaries
+.idea/*.xml
+
+# Keystore files
+*.jks
+*.keystore
+
+# External native build
+.cxx/
+
+# Google Services
+google-services.json

@@ -36,6 +36,11 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="shortService"
+            android:exported="false" />
+
     </application>
 
 </manifest>

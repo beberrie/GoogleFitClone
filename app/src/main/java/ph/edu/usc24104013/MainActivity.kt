@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import ph.edu.usc24104013.databinding.ActivityMainBinding
+import ph.edu.usc24104013.worker.WorkManagerScheduler
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         setupNavigation()
         requestPermissions()
+        WorkManagerScheduler.scheduleDailyReset(this)
     }
 
     private fun setupNavigation() {
@@ -34,7 +36,6 @@ class MainActivity : AppCompatActivity() {
     private fun requestPermissions() {
         val permissionsNeeded = mutableListOf<String>()
 
-        // ACTIVITY_RECOGNITION — needed for step counter (API 29+)
         if (ContextCompat.checkSelfPermission(
                 this, Manifest.permission.ACTIVITY_RECOGNITION
             ) != PackageManager.PERMISSION_GRANTED
@@ -42,7 +43,6 @@ class MainActivity : AppCompatActivity() {
             permissionsNeeded.add(Manifest.permission.ACTIVITY_RECOGNITION)
         }
 
-        // POST_NOTIFICATIONS — needed for WorkManager (API 33+)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(
                     this, Manifest.permission.POST_NOTIFICATIONS

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add activity"
+            android:textColor="@color/text_primary"
+            android:fontFamily="@font/font_montserrat"
+            android:textSize="20sp"
+            android:textFontWeight="600" />
+
+        <ImageButton
+            android:id="@+id/btn_close_log"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Close"
+            app:srcCompat="@drawable/ic_close" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Steps"
+        android:textColor="@color/text_secondary"
+        android:fontFamily="@font/font_montserrat"
+        android:textSize="13sp"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/et_log_steps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. 5000"
+        android:inputType="number"
+        android:textColor="@color/text_primary"
+        android:fontFamily="@font/font_montserrat"
+        android:textColorHint="@color/text_secondary"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calories burned (kcal)"
+        android:textColor="@color/text_secondary"
+        android:fontFamily="@font/font_montserrat"
+        android:textSize="13sp"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/et_log_calories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. 200"
+        android:inputType="numberDecimal"
+        android:textColor="@color/text_primary"
+        android:fontFamily="@font/font_montserrat"
+        android:textColorHint="@color/text_secondary"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distance (km)"
+        android:textColor="@color/text_secondary"
+        android:fontFamily="@font/font_montserrat"
+        android:textSize="13sp"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/et_log_distance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. 3.5"
+        android:inputType="numberDecimal"
+        android:textColor="@color/text_primary"
+        android:fontFamily="@font/font_montserrat"
+        android:textColorHint="@color/text_secondary"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Active minutes"
+        android:textColor="@color/text_secondary"
+        android:fontFamily="@font/font_montserrat"
+        android:textSize="13sp"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/et_log_minutes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. 30"
+        android:inputType="number"
+        android:textColor="@color/text_primary"
+        android:fontFamily="@font/font_montserrat"
+        android:textColorHint="@color/text_secondary"
+        android:layout_marginBottom="24dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_log_save"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="Save"
+        android:fontFamily="@font/font_montserrat"
+        android:textSize="15sp"
+        android:backgroundTint="@color/accent_blue"
+        app:cornerRadius="12dp" />
+
+</LinearLayout>

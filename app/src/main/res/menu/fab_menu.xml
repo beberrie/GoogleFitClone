@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_add_activity"
+        android:title="Add activity" />
+    <item
+        android:id="@+id/menu_add_weight"
+        android:title="Add weight" />
+    <item
+        android:id="@+id/menu_add_sleep"
+        android:title="Add sleep" />
+</menu>

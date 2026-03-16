@@ -13,8 +13,7 @@ object WorkoutGenerator {
         val name: String,
         val description: String,
         val duration: String,
-        val phase: String,
-        val emoji: String
+        val phase: String
     )
 
     // Returns Triple(warmupCount, mainCount, cooldownCount)
@@ -24,13 +23,6 @@ object WorkoutGenerator {
         totalMinutes <= 30 -> Triple(3, 6, 3)
         totalMinutes <= 45 -> Triple(4, 9, 3)
         else               -> Triple(4, 12, 4)
-    }
-
-    fun phaseEmoji(phase: String): String = when (phase) {
-        "warmup"   -> "🔥"
-        "main"     -> "💪"
-        "cooldown" -> "🧊"
-        else       -> "✅"
     }
 
     fun formatDuration(seconds: Int, phase: String): String =

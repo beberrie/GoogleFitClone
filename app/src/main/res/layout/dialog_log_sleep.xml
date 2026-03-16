@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add sleep"
+            android:textColor="@color/text_primary"
+            android:fontFamily="@font/font_montserrat"
+            android:textSize="20sp"
+            android:textFontWeight="600" />
+
+        <ImageButton
+            android:id="@+id/btn_close_sleep"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Close"
+            app:srcCompat="@drawable/ic_close" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bedtime"
+        android:textColor="@color/text_secondary"
+        android:fontFamily="@font/font_montserrat"
+        android:textSize="13sp"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/et_sleep_bedtime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. 10:30 PM"
+        android:inputType="text"
+        android:textColor="@color/text_primary"
+        android:fontFamily="@font/font_montserrat"
+        android:textColorHint="@color/text_secondary"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wake up"
+        android:textColor="@color/text_secondary"
+        android:fontFamily="@font/font_montserrat"
+        android:textSize="13sp"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/et_sleep_wakeup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. 6:30 AM"
+        android:inputType="text"
+        android:textColor="@color/text_primary"
+        android:fontFamily="@font/font_montserrat"
+        android:textColorHint="@color/text_secondary"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duration (hours)"
+        android:textColor="@color/text_secondary"
+        android:fontFamily="@font/font_montserrat"
+        android:textSize="13sp"
+        android:layout_marginBottom="4dp" />
+
+    <EditText
+        android:id="@+id/et_sleep_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. 8"
+        android:inputType="numberDecimal"
+        android:textColor="@color/text_primary"
+        android:fontFamily="@font/font_montserrat"
+        android:textColorHint="@color/text_secondary"
+        android:layout_marginBottom="24dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save_sleep"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="Save"
+        android:fontFamily="@font/font_montserrat"
+        android:textSize="15sp"
+        android:backgroundTint="@color/accent_blue"
+        app:cornerRadius="12dp" />
+
+</LinearLayout>

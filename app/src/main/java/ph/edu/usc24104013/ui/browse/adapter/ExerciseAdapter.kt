@@ -15,7 +15,6 @@ class ExerciseAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: WorkoutGenerator.WorkoutExerciseItem) {
-            binding.tvExerciseEmoji.text       = item.emoji
             binding.tvExerciseName.text        = item.name
             binding.tvExerciseDuration.text    = item.duration
             binding.tvExerciseDescription.text = item.description

@@ -21,8 +21,7 @@ class WorkoutRepo(private val exerciseDao: ExerciseDao) {
                 name        = ex.name,
                 description = ex.description,
                 duration    = WorkoutGenerator.formatDuration(ex.durationSeconds, ex.phase),
-                phase       = ex.phase,
-                emoji       = WorkoutGenerator.phaseEmoji(ex.phase)
+                phase       = ex.phase
             )
         }
 

@@ -5,11 +5,11 @@ import ph.edu.usc24104013.data.entity.ActivityEntity
 
 object HealthCalculator {
 
-    enum class FatigueLevel(val label: String, val emoji: String, val colorRes: Int) {
-        RESTED("Well Rested", "😊", R.color.fatigue_green),
-        MODERATE("Moderately Active", "🙂", R.color.fatigue_yellow),
-        TIRED("Tired", "😓", R.color.fatigue_orange),
-        OVEREXERTED("Overexerted", "🚨", R.color.fatigue_red)
+    enum class FatigueLevel(val label: String, val colorRes: Int) {
+        RESTED("Well Rested !", R.color.fatigue_green),
+        MODERATE("Moderately Active :D",  R.color.fatigue_yellow),
+        TIRED("Tired :(", R.color.fatigue_orange),
+        OVEREXERTED("Overexerted :'<", R.color.fatigue_red)
     }
 
     data class FatigueResult(
@@ -56,10 +56,10 @@ object HealthCalculator {
         }
 
         val recommendation = when (level) {
-            FatigueLevel.RESTED      -> "You're well recovered. Great time for a workout! 💪"
-            FatigueLevel.MODERATE    -> "You're active and doing well. Maintain your pace. 👟"
-            FatigueLevel.TIRED       -> "Your body is working hard. Consider a light walk or stretching today. 🧘"
-            FatigueLevel.OVEREXERTED -> "High activity detected for several days. Rest today to avoid injury! 🛑"
+            FatigueLevel.RESTED      -> "You're well recovered. Great time for a workout!"
+            FatigueLevel.MODERATE    -> "You're active and doing well. Maintain your pace."
+            FatigueLevel.TIRED       -> "Your body is working hard. Consider a light walk or stretching today."
+            FatigueLevel.OVEREXERTED -> "High activity detected for several days. Rest today to avoid injury!"
         }
 
         return FatigueResult(score, level, recommendation, stepList)

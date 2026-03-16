@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/insightsFragment"
-        android:name="ph.edu.usc24104013.ui.insights.InsightFragment"
+        android:name="ph.edu.usc24104013.ui.insights.InsightsFragment"
         android:label="Insights" />
 
     <fragment

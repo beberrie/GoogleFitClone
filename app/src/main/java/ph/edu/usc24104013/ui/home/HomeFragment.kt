@@ -19,43 +19,47 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentHomeBinding.bind(view)
 
-        setGreeting()
+        setWeekRange()
         observeData()
     }
 
-    private fun setGreeting() {
-        val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-        binding.tvGreeting.text = when {
-            hour < 12 -> "Good Morning 👋"
-            hour < 17 -> "Good Afternoon 👋"
-            else      -> "Good Evening 👋"
-        }
-        binding.tvDate.text =
-            SimpleDateFormat("EEEE, MMMM d yyyy", Locale.getDefault()).format(Date())
+    private fun setWeekRange() {
+        val cal   = Calendar.getInstance()
+        val end   = SimpleDateFormat("MMM d", Locale.getDefault()).format(cal.time)
+        cal.add(Calendar.DAY_OF_YEAR, -6)
+        val start = SimpleDateFormat("MMM d", Locale.getDefault()).format(cal.time)
+        binding.textView4b.text = "$start - $end"
     }
 
     private fun observeData() {
-        // Steps
+        // Steps + rings
         viewModel.stepCounter.steps.observe(viewLifecycleOwner) { steps ->
-            binding.tvSteps.text = steps.toString()
-            binding.pbSteps.progress = steps
-            binding.tvActiveMinutes.text = "${steps / 100} min"
+            val goalSteps = viewModel.stepGoal.value ?: 10000
+
+            // Center labels inside rings
+            binding.nSteps.text = "%,d".format(steps)
+            binding.nHeart.text = "${steps / 100}"
+
+            // Ring progress
+            binding.circularProgress.stepsProgress = steps / goalSteps.toFloat()
+            binding.circularProgress.heartProgress = (steps / 100f / 150f).coerceAtMost(1f)
         }
 
-        // Step goal
+        // Daily goals card — goals achieved this week
+        viewModel.allActivities.observe(viewLifecycleOwner) { activities ->
+            val goalsThisWeek = activities.take(7).count {
+                it.steps >= (viewModel.stepGoal.value ?: 10000)
+            }
+            binding.tvSteps.text = "$goalsThisWeek/7"
+
+            // Weekly target card
+            val weeklySteps = activities.take(7).sumOf { it.steps }
+            binding.tvStepsWeekly.text = "$weeklySteps of 150"
+            binding.pbSteps.progress   = weeklySteps
+        }
+
         viewModel.stepGoal.observe(viewLifecycleOwner) { goal ->
-            binding.pbSteps.max = goal
-            binding.tvStepGoal.text = "Goal: ${"%,d".format(goal)} steps"
-        }
-
-        // Calories
-        viewModel.calories.observe(viewLifecycleOwner) { cal ->
-            binding.tvCalories.text = "%.0f".format(cal)
-        }
-
-        // Distance
-        viewModel.distance.observe(viewLifecycleOwner) { km ->
-            binding.tvDistance.text = "%.2f".format(km)
+            binding.pbSteps.max = goal * 7
         }
     }
 

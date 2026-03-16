@@ -22,34 +22,27 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     val allActivities: LiveData<List<ActivityEntity>> = repository.allActivities
 
-    private val _calories = MutableLiveData(0f)
-    val calories: LiveData<Float> = _calories
-
-    private val _distance = MutableLiveData(0f)
-    val distance: LiveData<Float> = _distance
-
     private val _stepGoal = MutableLiveData(10000)
     val stepGoal: LiveData<Int> = _stepGoal
+
+    private var userWeightKg = 70f
 
     init {
         stepCounter.startListening()
         loadGoal()
-
-        // Recalculate calories + distance whenever steps change
-        stepCounter.steps.observeForever { steps ->
-            _calories.postValue(HealthCalculator.calculateCalories(steps))
-            _distance.postValue(HealthCalculator.calculateDistance(steps))
-        }
     }
 
     private fun loadGoal() = viewModelScope.launch {
         val goal = db.goalDao().getGoalOnce()
-        goal?.let { _stepGoal.postValue(it.dailyStepGoal) }
+        goal?.let {
+            _stepGoal.postValue(it.dailyStepGoal)
+            userWeightKg = it.weightKg
+        }
     }
 
     fun saveStepsForToday(steps: Int) = viewModelScope.launch {
         val today    = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
-        val calories = HealthCalculator.calculateCalories(steps)
+        val calories = HealthCalculator.calculateCalories(steps, userWeightKg)
         val distance = HealthCalculator.calculateDistance(steps)
         repository.insertActivity(
             ActivityEntity(

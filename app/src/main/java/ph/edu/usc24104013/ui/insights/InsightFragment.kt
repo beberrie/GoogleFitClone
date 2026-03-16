@@ -29,8 +29,6 @@ class InsightFragment : Fragment(R.layout.fragment_insight) {
 
     private fun observeData() {
         viewModel.fatigueResult.observe(viewLifecycleOwner) { result ->
-            // Fatigue card
-            binding.tvFatigueEmoji.text    = result.level.emoji
             binding.tvFatigueLevel.text    = result.level.label
             binding.tvFatigueScore.text    = "Score: ${result.score} / 100"
             binding.pbFatigueScore.progress = result.score

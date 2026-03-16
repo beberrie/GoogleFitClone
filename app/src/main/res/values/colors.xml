@@ -2,28 +2,28 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- App theme colors -->
-    <color name="background_dark">#FF121212</color>
-    <color name="card_background">#FF1E1E1E</color>
-    <color name="nav_background">#FF1A1A1A</color>
+    <color name="background_dark">#1F2123</color>
+    <color name="card_background">#121416</color>
+    <color name="nav_background">#3C4043</color>
 
-    <!-- Text -->
     <color name="text_primary">#FFFFFFFF</color>
-    <color name="text_secondary">#FFB0B0B0</color>
+    <color name="text_secondary">#A2A3A7</color>
 
-    <!-- Accents -->
-    <color name="accent_blue">#FF4FC3F7</color>
-    <color name="accent_green">#FF81C784</color>
-    <color name="accent_orange">#FFFFB74D</color>
+    <color name="accent_blue">#6E9AE3</color>
+    <color name="accent_lowblue">#1D2B3B</color>
+    <color name="accent_green">#06DAAE</color>
+    <color name="accent_lowgreen">#1C302E</color>
+    <color name="accent_lowyellow">#3A362B</color>
+    <color name="accent_yellow">#FDD763</color>
+    <color name="accent_lowpurple">#2F2E3D</color>
+    <color name="accent_purple">#9C92F7</color>
+    <color name="accent_orange">#FFEAE6</color>
 
-    <!-- Progress bar track -->
     <color name="progress_track">#FF333333</color>
 
-    <!-- Bottom nav -->
-    <color name="nav_selected">#FF4FC3F7</color>
-    <color name="nav_unselected">#FF666666</color>
+    <color name="nav_selected">#649BEE</color>
+    <color name="nav_unselected">#999EA2</color>
 
-    <!-- Fatigue indicator colors -->
     <color name="fatigue_green">#FF4CAF50</color>
     <color name="fatigue_yellow">#FFFFC107</color>
     <color name="fatigue_orange">#FFFF9800</color>

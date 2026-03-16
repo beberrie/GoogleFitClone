@@ -18,22 +18,44 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
     private val _saved = MutableLiveData(false)
     val saved: LiveData<Boolean> = _saved
 
-    fun saveGoals(stepGoal: Int, calorieGoal: Float) = viewModelScope.launch {
+    fun saveAll(
+        stepGoal: Int,
+        calorieGoal: Float,
+        bedtime: String,
+        wakeup: String,
+        bedtimeEnabled: Boolean,
+        weightKg: Float,
+        heightCm: Float
+    ) = viewModelScope.launch {
         val existing = db.goalDao().getGoalOnce()
         if (existing != null) {
-            db.goalDao().update(existing.copy(
-                dailyStepGoal    = stepGoal,
-                dailyCalorieGoal = calorieGoal
-            ))
+            db.goalDao().update(
+                existing.copy(
+                    dailyStepGoal    = stepGoal,
+                    dailyCalorieGoal = calorieGoal,
+                    bedtime          = bedtime,
+                    wakeup           = wakeup,
+                    bedtimeEnabled   = bedtimeEnabled,
+                    weightKg         = weightKg,
+                    heightCm         = heightCm
+                )
+            )
         } else {
-            db.goalDao().insert(GoalEntity(
-                dailyStepGoal    = stepGoal,
-                dailyCalorieGoal = calorieGoal,
-                currentStreak    = 0,
-                longestStreak    = 0,
-                lastGoalMetDate  = "",
-                badges           = ""
-            ))
+            db.goalDao().insert(
+                GoalEntity(
+                    dailyStepGoal    = stepGoal,
+                    dailyCalorieGoal = calorieGoal,
+                    currentStreak    = 0,
+                    longestStreak    = 0,
+                    lastGoalMetDate  = "",
+                    badges           = "",
+                    bedtime          = bedtime,
+                    wakeup           = wakeup,
+                    bedtimeEnabled   = bedtimeEnabled,
+                    weightKg         = weightKg,
+                    heightCm         = heightCm
+                )
+            )
         }
         _saved.postValue(true)
     }

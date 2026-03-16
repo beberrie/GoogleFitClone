@@ -25,7 +25,7 @@ import ph.edu.usc24104013.utils.Constants
         GoalEntity::class,
         ExerciseEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class FitDB : RoomDatabase() {
@@ -45,6 +45,7 @@ abstract class FitDB : RoomDatabase() {
                     FitDB::class.java,
                     Constants.DATABASE_NAME
                 )
+                    .fallbackToDestructiveMigration() // ← add this line
                     .addCallback(seedCallback)
                     .build()
                     .also { INSTANCE = it }
@@ -64,7 +65,12 @@ abstract class FitDB : RoomDatabase() {
                                 currentStreak    = 0,
                                 longestStreak    = 0,
                                 lastGoalMetDate  = "",
-                                badges           = ""
+                                badges           = "",
+                                bedtime          = "10:00 PM",
+                                wakeup           = "6:00 AM",
+                                bedtimeEnabled   = false,
+                                weightKg         = 70f,
+                                heightCm         = 170f
                             )
                         )
                         // Seed exercise library

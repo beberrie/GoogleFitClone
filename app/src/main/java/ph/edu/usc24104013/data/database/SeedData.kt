@@ -4,7 +4,7 @@ import ph.edu.usc24104013.data.entity.ExerciseEntity
 
 object SeedData {
     val exercises = listOf(
-        // ── Warm-ups ──────────────────────────────────────────────
+        // ── Warm-ups
         ExerciseEntity(name = "Jumping Jacks",         type = "Cardio",      phase = "warmup",   durationSeconds = 60,  description = "Jump feet wide while raising arms overhead.",              caloriesPerMinute = 8f),
         ExerciseEntity(name = "Arm Circles",           type = "Strength",    phase = "warmup",   durationSeconds = 45,  description = "Rotate arms in large circles forward and backward.",       caloriesPerMinute = 3f),
         ExerciseEntity(name = "Hip Rotations",         type = "Flexibility", phase = "warmup",   durationSeconds = 45,  description = "Stand and rotate hips in a wide circular motion.",        caloriesPerMinute = 3f),

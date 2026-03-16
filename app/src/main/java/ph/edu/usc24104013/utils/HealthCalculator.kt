@@ -67,7 +67,6 @@ object HealthCalculator {
 
     fun calculateCalories(steps: Int, weightKg: Float = 70f): Float =
         steps * Constants.CALORIES_PER_STEP * (weightKg / 70f)
-
     fun calculateDistance(steps: Int): Float =
         steps * Constants.AVG_STRIDE_METERS
 }

@@ -1,6 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_bottom_sheet"
+    android:orientation="vertical"
+    android:padding="24dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Top section: close + title + subtitle -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="8dp">
+
+        <!-- Close button aligned to the right -->
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Close"
+            app:srcCompat="@drawable/ic_close" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tv_goal_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/font_montserrat"
+            android:text="Steps"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textFontWeight="600" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/tv_goal_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/font_montserrat"
+            android:text="Placeholder subtitle"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <!-- Center section: minus, edittext, plus -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp">
+
+        <!-- Minus button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_minus"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:text="−"
+            android:textSize="24sp"
+            android:textColor="@color/text_primary"
+            android:backgroundTint="@color/background_dark"
+            app:cornerRadius="26dp"
+            android:layout_marginEnd="16dp" />
+
+        <!-- Goal value EditText -->
+        <EditText
+            android:id="@+id/et_goal_value"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:inputType="number"
+            android:fontFamily="@font/font_montserrat"
+            android:textColor="@color/text_primary"
+            android:textSize="36sp"
+            android:textFontWeight="600"
+            android:background="@android:color/transparent"
+            android:textColorHint="@color/text_secondary" />
+
+        <!-- Plus button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_plus"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:text="+"
+            android:textSize="24sp"
+            android:textColor="@color/text_primary"
+            android:backgroundTint="@color/background_dark"
+            app:cornerRadius="26dp"
+            android:layout_marginStart="16dp" />
+
+    </LinearLayout>
+
+    <!-- Bottom: Set Goal button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_set_goal"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="Set goal"
+        android:fontFamily="@font/font_montserrat"
+        android:textSize="15sp"
+        android:backgroundTint="@color/accent_blue"
+        app:cornerRadius="12dp" />
+
+</LinearLayout>

@@ -20,13 +20,13 @@
         android:label="Browse" />
 
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="ph.edu.usc24104013.ui.profile.ProfileFragment"
-        android:label="Profile" />
-
-    <fragment
         android:id="@+id/insightsFragment"
         android:name="ph.edu.usc24104013.ui.insights.InsightFragment"
         android:label="Insights" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="ph.edu.usc24104013.ui.profile.ProfileFragment"
+        android:label="Profile" />
 
 </navigation>
